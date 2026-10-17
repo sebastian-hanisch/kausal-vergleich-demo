@@ -1,5 +1,7 @@
 # Welches Verfahren, gemessen woran? – Streamlit-Demo
 
+**[→ Demo live ausprobieren](https://sebastianhanisch-kausal-vergleich-demo.streamlit.app/)**
+
 Siebzehntes und **letztes Stück** der Linie **Kausale Diagramme und Adjustierung** in der „Konzepte“-Reihe im Portfolio von [Sebastian Hanisch](https://sebastianhanisch.net) (Operations Research und Machine Learning). Nachfolger von [diagrammfehler-demo](https://github.com/sebastian-hanisch/diagrammfehler-demo) und Zusammenfluss der Linie: [backdoor-demo](https://github.com/sebastian-hanisch/backdoor-demo), [schlechte-kontrollen-demo](https://github.com/sebastian-hanisch/schlechte-kontrollen-demo), [frontdoor-demo](https://github.com/sebastian-hanisch/frontdoor-demo) und [instrumente-demo](https://github.com/sebastian-hanisch/instrumente-demo) haben je eine Strategie gebaut; hier stehen sie nebeneinander vor derselben Wahrheit. (Der Titel ist derselbe wie bei den Zusammenfluss-Stücken der Ranking-Linien, [mcda-vergleich-demo](https://github.com/sebastian-hanisch/mcda-vergleich-demo) und [rating-vergleich-demo](https://github.com/sebastian-hanisch/rating-vergleich-demo); das Thema ist ein anderes.)
 
 ## Kernfrage
@@ -107,4 +109,4 @@ Streamlit Cloud: Python 3.12.
 
 Gebaut mit Streamlit, Plotly, numpy, pandas und fpdf2.
 
-Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zu den Demos: [Interaktive Demos](https://sebastianhanisch.net/demos.html).
+Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zur Reihe: [Kausale Diagramme: von Konfundierung bis Wahl](https://sebastianhanisch.net/konzepte-kausale-diagramme.html).
