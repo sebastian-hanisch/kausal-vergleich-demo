@@ -16,6 +16,23 @@ POS = {K.Z: (0.1, 1.0), K.U: (0.5, 1.0), K.W: (0.9, 1.0), K.I: (0.0, 0.5), K.X: 
 VIOLATIONS = {(K.X, K.Y), (K.U, K.M), (K.I, K.Y), (K.U, K.I)}
 
 
+def _ref_line(fig, value, text, position, axis, log=True, **line_kwargs):
+    """Referenzlinie mit Beschriftung auf einer logarithmischen Achse: die Linie liegt auf dem Datenwert, die Beschriftung braucht log10 des Werts
+    (add_hline und add_vline setzen beide auf denselben Wert, die Beschriftung sitzt dann falsch und dehnt die Achse); log=False für lineare Achsen."""
+    if log and not value > 0.0:
+        return
+    pos = math.log10(value) if log else value
+    top, left = "top" in position, "left" in position
+    if axis == "y":
+        fig.add_hline(y=value, **line_kwargs)
+        if text:
+            fig.add_annotation(xref="paper", yref="y", x=0 if left else 1, y=pos, text=text, showarrow=False, xanchor="left" if left else "right", yanchor="bottom" if top else "top")
+    else:
+        fig.add_vline(x=value, **line_kwargs)
+        if text:
+            fig.add_annotation(xref="x", yref="paper", x=pos, y=1 if top else 0, text=text, showarrow=False, xanchor="right" if left else "left", yanchor="top" if top else "bottom")
+
+
 def _fixed(fig: go.Figure, height: int = 380, **layout) -> go.Figure:
     fig.update_layout(height=height, margin=dict(l=10, r=10, t=30, b=10), legend=dict(orientation="h", y=-0.22), **layout)
     fig.update_xaxes(fixedrange=True)
@@ -134,7 +151,7 @@ def build_mc_chart(res: dict, scenario: str, measure: str) -> go.Figure:
     fig = go.Figure()
     fig.add_trace(go.Bar(x=list(K.STRATEGIES), y=vals, marker_color=[K.COLOR_GOOD if entry["valid"][m] else K.COLOR_BAD for m in K.STRATEGIES], text=[de(v, 3) if key != "cover" else pct(v) for v in vals], textposition="outside"))
     if key == "cover":
-        fig.add_hline(y=E.COVER_OK, line=dict(color="#888888", width=1, dash="dot"), annotation_text="93 %", annotation_position="right")
+        _ref_line(fig, E.COVER_OK, "93 %", "right", "y", line=dict(color="#888888", width=1, dash="dot"))
         fig.update_yaxes(range=[0, 1.12])
     elif key in ("rmse", "width"):
         fig.update_yaxes(type="log")
