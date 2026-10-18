@@ -107,10 +107,10 @@ PRESET_HELP = {
     "Verborgene Ursache, Anstoß da (Voreinstellung)": "Die verborgene Standortqualität treibt Faktor und Servicegrad (je 0,6): Backdoor bleibt um +0,22 verzerrt, Frontdoor und 2SLS sind gültig, 2SLS streut 1,9-mal so stark wie Frontdoor.",
     "Alles beobachtet": "Keine verborgene Ursache: Backdoor, Frontdoor und 2SLS sind alle gültig; Backdoor {Z, W} streut am wenigsten, 2SLS am meisten (2,2-fach). „Alles anpassen“ löscht die ganze Wirkung (−0,60).",
     "Kein Anstoß": "Der Anstoß ist null: nur Frontdoor ist gültig. 2SLS hat kein Instrument, sein Intervall ist riesig und deckt trotzdem (Deckung ohne Breite).",
-    "Nichts brauchbar": "Kein Anstoß und ein direkter Pfeil am Bestand vorbei: keine der sechs Strategien ist gültig, alle geben enge Intervalle um falsche Zahlen. Hier hilft nur die Sensitivität (Stück 11).",
-    "Schwacher Anstoß": "Der Anstoß ist schwach (π = 0,1, F in dieser Stichprobe 6,0, im Mittel etwa 8): 2SLS ist gültig, aber Mittel und RMSE explodieren; Median und Breite zeigen es (Breite 1,7). Frontdoor ist gültig und ruhig.",
+    "Nichts brauchbar": "Kein Anstoß und ein direkter Pfeil am Bestand vorbei: keine der sechs Strategien ist gültig, fünf geben enge Intervalle um falsche Zahlen, das 2SLS ein riesiges. Hier hilft nur die Sensitivität (Stück 11).",
+    "Schwacher Anstoß": "Der Anstoß ist schwach (π = 0,1, F in dieser Stichprobe 6,0, im Mittel etwa 8): 2SLS ist gültig, aber der RMSE ist rund 14-mal so groß wie beim Frontdoor; Median und Breite zeigen es (Breite 1,7). Frontdoor ist gültig und ruhig.",
     "Anstoß wirkt direkt": "Der Anstoß wirkt auch direkt auf den Servicegrad: 2SLS ist um +0,60 verzerrt, ein Vortest zwischen Backdoor und 2SLS verwirft und wählt das falsche.",
-    "Anstoß hängt an der Ursache": "Der Anstoß hängt an der verborgenen Ursache: 2SLS und Backdoor sind gleich verzerrt (+0,25), ein Vortest sieht keine Abweichung: Einigkeit ist keine Gültigkeit.",
+    "Anstoß hängt an der Ursache": "Der Anstoß hängt an der verborgenen Ursache: 2SLS und Backdoor sind hier gleich verzerrt (+0,25), ein Vortest sieht keine Abweichung: Einigkeit ist keine Gültigkeit.",
     "Teilweise vermittelt": "Ein Teil der Wirkung geht direkt am Bestand vorbei (e = 0,3): Frontdoor misst nur den Weg über den Bestand (−0,30), 2SLS ist gültig.",
     "Ursache wirkt auf den Mediator": "Die verborgene Ursache wirkt auch auf den Bestand: Frontdoor ist um +0,21 verzerrt, 2SLS ist gültig.",
 }

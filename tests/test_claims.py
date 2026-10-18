@@ -1,8 +1,8 @@
 """Jede Zahl aus README.md und den App-Texten wird hier über dieselben Auswertungsfunktionen nachgerechnet (DEMO-PLAYBOOK §4).
 
 Die Experimente 1, 2 und 5 sind exakt (Bevölkerungskovarianz, Asymptotik): Dort gelten Toleranzen der Rundung. Experimente 3 und 4 laufen über SplitMix64-Ströme (ganzzahlig, plattformstabil), die Schätzungen rechnen aber in Gleitkomma;
-wo ein einzelner Datensatz die Deckung kippen kann (Anteile bei 300 oder 400 Läufen) gelten Toleranzen von zwei Läufen. Was Identität oder Konstruktion ist, steht ausdrücklich dabei: „Kriterium am Diagramm erfüllt ⇔ Grenzwert-Bias null“
-(Identität der Welt, kein Befund), die Kreuzungsgröße n* (Rechnung aus Bias und Streuung, keine Beobachtung), die Reue (ein Werkzeug über die gewählten Szenarien, kein Befund über Verfahren: Frontdoor ist in sechs der neun Szenarien nach Konstruktion gültig).
+wo ein einzelner Datensatz die Deckung kippen kann (Anteile bei 300 oder 400 Läufen) gelten Toleranzen von zwei Läufen. Was Konstruktion oder Rechnung ist, steht ausdrücklich dabei: „Kriterium am Diagramm erfüllt ⇒ Grenzwert-Bias null“ (die Rückrichtung gilt in den neun Szenarien, nicht ausnahmslos in der Welt)
+, die Kreuzungsgröße n* (Rechnung aus Bias und Streuung, keine Beobachtung), die Reue (ein Werkzeug über die gewählten Szenarien, kein Befund über Verfahren: Frontdoor ist in sechs der neun Szenarien nach Konstruktion gültig).
 """
 
 import math
@@ -25,7 +25,7 @@ def test_claim_hand_instances():
     assert ev.crossing_table(K.knobs())[2]["n_iv"] == pytest.approx(1047, abs=1)
 
 
-def test_claim_the_criterion_at_the_diagram_equals_the_exact_bias_is_an_identity_of_this_world(limits):
+def test_claim_the_criterion_at_the_diagram_and_the_exact_bias_agree_in_the_nine_scenarios(limits):
     for name, e in limits.items():
         for m in K.STRATEGIES:
             assert e["valid"][m] == (not math.isnan(e["bias"][m]) and abs(e["bias"][m]) < 1e-9), (name, m)

@@ -102,8 +102,8 @@ with st.expander("So liest man das Ergebnis", expanded=True):
         """
 1. **Die Welt** (links): Nachfrage Z und Wetter W wirken auf den Servicegrad Y, Z auch auf den Faktor X; ein **Anstoß** I verschiebt X; eine **verborgene Standortqualität** U (orange) treibt X, Y und (wenn gewählt) den Bestand M und den Anstoß; X wirkt über den **Bestand** M auf Y (und, wenn gewählt, direkt). **Rote Pfeile** verletzen die Annahme einer Strategie.
 2. **Sechs Strategien** (rechts): Schätzung mit 95-%-Intervall gegen die **Wahrheit** (orange gestrichelt). **Grün**: Die Annahme gilt im Diagramm der Welt. **Rot**: Sie gilt nicht, und das Intervall ist trotzdem eng.
-3. **Gültig** heißt: Backdoor, Frontdoor bzw. Instrument-Kriterium am Diagramm erfüllt; das stimmt mit dem exakten Grenzwert-Bias überein (Bias null).
-4. **Preis der Gültigkeit**: Unter den gültigen streut die mit den meisten Annahmen (Backdoor) am wenigsten, die mit den wenigsten (2SLS) am meisten.
+3. **Gültig** heißt: Backdoor, Frontdoor bzw. Instrument-Kriterium am Diagramm erfüllt; in den neun Szenarien stimmt das mit dem exakten Grenzwert-Bias überein (Bias null).
+4. **Preis der Gültigkeit**: Unter den gültigen streut Backdoor, das keine unbeobachtete Ursache zulässt, am wenigsten, 2SLS, das sie zulässt, am meisten (in dieser Welt).
 5. **Checkliste**: Welche Annahmen Sie vertreten, bestimmt, welche Strategien zulässig sind. Ob sie in Ihrer Welt gelten, zeigt nur die Demo.
         """
     )
@@ -250,7 +250,7 @@ Wahrheit (Gesamtwirkung bei Eingriff): $\tau = 0{,}6\,c + e$.
 2SLS mit Kovariaten $Z, W$: $\hat\beta = \widetilde{\mathrm{Cov}}(I, Y) / \widetilde{\mathrm{Cov}}(I, X)$ (Teilkovarianzen, Kovariaten herausgerechnet), $\mathrm{Var}(\hat\beta) = \sigma^2\,\widetilde{\mathrm{Var}}(I)\,/\,(n\,\widetilde{\mathrm{Cov}}(I, X)^2)$.
 
 **Gültigkeit.** Backdoor: kein Nachkomme von $X$ in der Menge, $X \perp Y$ gegeben die Menge im Diagramm ohne die Pfeile aus $X$; Frontdoor: der Bestand fängt alle gerichteten Pfade ab, kein offener Rückweg von $X$ zu ihm, alle Rückwege von ihm zu $Y$ durch $X$ blockiert;
-Instrument: $I$ ist nicht von $X$ getrennt und im Diagramm ohne die Pfeile in $X$ von $Y$ getrennt. In der Welt gilt: **Kriterium erfüllt $\Leftrightarrow$ Grenzwert-Bias null**.
+Instrument: $I$ ist nicht von $X$ getrennt und im Diagramm ohne die Pfeile in $X$ von $Y$ getrennt. In der Welt gilt: **Kriterium erfüllt $\Rightarrow$ Grenzwert-Bias null**; umgekehrt gilt es in den neun Szenarien, aber nicht ausnahmslos (zufällige Auslöschung zweier Verletzungen ist möglich).
 
 **Preis und Kreuzung.** Asymptotisch $\mathrm{RMSE}(n)^2 = \mathrm{Bias}^2 + \sigma^2/n$ ($\sigma$ die Streuung je $\sqrt n$). Das verzerrte Backdoor schlägt das gültige 2SLS, solange $\mathrm{Bias}^2 < (\sigma_{2SLS}^2 - \sigma_{BD}^2)/n$, also unter $n^* = (\sigma_{2SLS}^2 - \sigma_{BD}^2)/\mathrm{Bias}^2$.
 Beim 2SLS mit exakter Identifikation fehlen die Momente; bei schwachem Anstoß zählen Median und Breite.
